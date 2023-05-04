@@ -1,0 +1,89 @@
+*,html{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.content{
+    margin:1rem 5%;
+}
+
+nav{
+    background-color: teal;
+    margin:0 5%;
+    padding:0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+nav a{
+    text-decoration: none;
+    color: aliceblue;
+    padding: 0.5rem;
+    font-size: 1.125rem;
+}
+nav a:hover{
+    color: rgb(249, 251, 253);
+    transition:  1s ease-in-out ;
+    border-radius: 0.5rem;
+    background-color: rgb(4, 43, 43);
+}
+
+.form{
+    text-align: center;
+}
+
+.form input{
+    width: 20rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.btn{
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: white;
+    background-color: teal;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.btn:hover{
+    background-color: rgb(4, 78, 78);
+    transition:  1s ease-in-out ;
+    cursor: pointer;
+}
+
+.heading{
+    margin-bottom: 0.5rem;
+}
+
+.list{
+    margin-bottom: 0.5rem;
+}
+
+.list a:hover{
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: teal;
+    transition:  1s ease-in-out ;
+}
+
+@media (max-width:450px){
+    .form input{
+        width:15rem;
+        line-height: 0;
+    }
+}

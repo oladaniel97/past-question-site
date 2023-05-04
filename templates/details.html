@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {%block title%}{{past_question.year }}{%endblock%}
+{%block content%}
+<small class="small"
+  ><a href="{%url 'index'%}">Home</a> /
+  <a href="{%url 'department' past_question.faculty.id%}"
+    >{{past_question.course.department.faculty.name | capfirst }}</a
+  >
+  /
+  <a href="{%url 'course' past_question.department.id%}"
+    >{{past_question.course.department.name | capfirst }}</a
+  >
+  /
+  <a href="{%url 'past_questions' past_question.course.id%}"
+    >{{past_question.course.name | capfirst }}</a
+  >
+  / <a href="#">{{past_question.year | capfirst }}</a></small
+>
+<div class="detail">
+  <h3>{{past_question.course | capfirst}}</h3>
+  <p>Faculty: {{past_question.course.department.faculty.name | capfirst }}</p>
+  <p>Department: {{past_question.course.department.name | capfirst }}</p>
+  <p>Year: {{past_question.year | capfirst }}</p>
+  <p>Description: {{past_question.description | capfirst}}</p>
+  <small><em>Price: # {{past_question.price}}</em></small>
+</div>
+
+<h2 class="contact">Contact us</h2>
+
+{% if successes %}
+<p>Thank you for contacting us. We will get back to you soon.</p>
+{% else %}
+<form method="post">
+  {% csrf_token %} {{ forms.as_p }}
+  <button type="submit" class="btn">Send</button>
+</form>
+{% endif %} {%endblock%}

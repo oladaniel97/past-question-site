@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load menu %}
+
+{%block title%}search{%endblock%}
+
+{%block content%}
+{% if departments %}
+    <div class='listss'>
+        <h2 class="heading">Results for the query '{{query | capfirst }}'</h2>
+        {%for department in departments%}
+            <h3 class='list'><i class="fa fa-hand-point-right"></i><a href="{%url 'course' department.id%}">  {{department.name | capfirst}}</a></h3>
+        {%endfor%}
+    </div>
+{% elif courses %}
+<div class='listss'>
+    <h2 class="heading">Results for the query '{{query | capfirst }}'</h2>
+    {%for course in courses%}
+        <h3 class='list'><i class="fa fa-hand-point-right"></i><a href="{%url 'past_questions' course.id%}">  {{course.name | capfirst}}</a></h3>
+    {%endfor%}
+</div>
+{% else %}
+<div class='listss'>
+<h2 class="heading">Results for the query '{{query | capfirst }}'</h2>
+    <p>there are no departments or courses matching this search</p>
+{% endif %}
+</div>
+    <div >
+        {%menu%}
+    </div>
+{%endblock%}

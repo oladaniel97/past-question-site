@@ -1,0 +1,74 @@
+
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} | Business</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    
+</head>
+<body>
+    <nav>
+        <a href="{%url 'index'%}">Home</a>
+        
+        <a href="#contact">Contact us</a>
+    </nav>
+    <div class="form">
+        <h1>Let's Help You Prepare</h1>
+        <p>Search by department or by course name</p>
+        <form action="/search" method="get" class='search' id='search'>
+            <input type="search" name="query" placeholder="Type here to Search ..." id="input"  >
+            <button class="btn"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <div class="content">
+        <div>
+            {%block content%}
+    
+            {%endblock%}
+        </div>
+        
+        
+        
+    </div>
+    
+    
+   <footer id="contact">
+    <div class="foot">
+        <div class="left">
+            <div>
+                <p><a href="{%url 'index'%}">Home</a></p>
+                <p><a href="#">Contact us</a></p>
+                <p><a href="{%url 'about'%}">about</a></p>
+            </div>
+            <div>
+                <p><a href="">email</a></p>
+                <p><a href="">facebook</a></p>
+            </div>
+        </div>
+        
+        <div class="footerform">
+            {% if success %}
+            <p>Thank you for contacting us. We will get back to you soon.</p>
+            {% else %}
+            <form method="post">
+                {% csrf_token %} {{ form.as_p }}
+                <button type="submit" class="btn">Send</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+       
+       
+        <div class="bottom">
+            <p>Copyright &copy; noupastquestion.com</p>
+        </div>
+   </footer>
+    <!-- <script src="{% static 'script.js' %}"></script> -->
+</body>
+</html>

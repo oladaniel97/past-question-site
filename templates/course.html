@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load menu %}
+{% load static %}
+
+{%block title%}{{department.name | capfirst}}{%endblock%}
+
+{%block content%}
+    <small class='small'><a href="{%url 'index'%}">Home</a> / <a href="{%url 'department' department.faculty.id%}">{{department.faculty.name | capfirst }}</a> / <a href="#">{{department.name | capfirst }}</a></small>
+    <div class="photo">
+        <div class="listss">
+            <h2 class="heading">Courses in {{department.name | capfirst }}</h2>
+            {%for course in courses%}
+                <h3 class='list'><i class="fa fa-hand-point-right"></i><a href="{%url 'past_questions' course.id%}">  {{course.name | capfirst}}</a></h3>
+            {%endfor%}
+        </div>
+        <div>
+            <div>
+                <img src="{% static '/man.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <div >
+        {%menu%}
+    </div>
+{%endblock%}
