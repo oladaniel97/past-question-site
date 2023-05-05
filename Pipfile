@@ -8,6 +8,7 @@ django = "*"
 django-dynamic-admin-forms = "*"
 gunicorn = "*"
 psycopg2 = "*"
+whitenoise = "*"
 
 [dev-packages]
 
